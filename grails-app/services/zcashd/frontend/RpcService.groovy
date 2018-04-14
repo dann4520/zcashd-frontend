@@ -5,6 +5,8 @@ import com.thetransactioncompany.jsonrpc2.JSONRPC2Response
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2Session
 import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException
 
+// http://software.dzhuvinov.com/json-rpc-2.0-client.html
+
 class RpcService {
     String server = "http://127.0.0.1:18232/"
     URL serverURL
@@ -14,34 +16,29 @@ class RpcService {
     String method
     int requestID
 
-    def rpcGetInfo() {
-        try {
-            serverURL = new URL(server)
-        } catch(MalformedURLException ex) {
-            System.err.println(ex.getMessage())
-        }
+    def getInfo(String method) {
+        this.method = method
+        requestID = 0
+        request = new JSONRPC2Request(method, requestID)
+
+        serverURL = new URL(server)
 
         mySession = new JSONRPC2Session(serverURL)
         mySession.setConnectionConfigurator(new BasicAuthenticator())
-        mySession.getOptions().setAllowedResponseContentTypes("text/plain" as String[])
-
-
-        method = "getinfo"
-        requestID = 0
-        request = new JSONRPC2Request(method, requestID)
+//        mySession.setRawResponseInspector(new RpcInspector())
+        mySession.getOptions().ignoreVersion(true)
 
 
         try {
             response = mySession.send(request)
-
             if (response.indicatesSuccess())
-                System.out.println(response.getResult())
+                return response.getResult()
             else
                 System.out.println(response.getError().getMessage())
-
-        } catch(JSONRPC2SessionException ex){
-            System.err.println(ex.getMessage())
+        } catch (JSONRPC2SessionException e) {
+            System.err.println(e.getMessage())
         }
 
     }
+
 }
