@@ -58,6 +58,8 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:2.47.1"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
+// https://mvnrepository.com/artifact/com.thetransactioncompany/jsonrpc2-client
+    compile group: 'com.thetransactioncompany', name: 'jsonrpc2-client', version: '1.16.4'
 }
 
 bootRun {
