@@ -2,12 +2,15 @@ package zcashd.frontend
 
 class DashboardController {
 
-    def showPeerInfo() {
-        // make jsonrpc call
+    RpcService rpcService = new RpcService()
 
-        // parse results
+    def showPeerinfo() {
+        def peers = rpcService.getInfo("getpeerinfo")
+        def info = rpcService.getInfo("getinfo")
 
-        // return results as json to be picked up by view
-        render "showPeerInfo()"
+        println peers.class
+        println info.class
+
+        render model:[peers:peers, info:info], view:"index"
     }
 }

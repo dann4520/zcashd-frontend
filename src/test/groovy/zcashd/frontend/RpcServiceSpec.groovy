@@ -18,9 +18,9 @@ class RpcServiceSpec extends Specification implements ServiceUnitTest<RpcService
             def result = service.getInfo("getinfo")
         then:
             result instanceof JSONObject
-        result.each{
-            println it
-        }
+            result.each{
+                println it
+            }
     }
 
     void "test getInfo() - getpeerinfo"() {
@@ -28,8 +28,8 @@ class RpcServiceSpec extends Specification implements ServiceUnitTest<RpcService
             def result = service.getInfo("getpeerinfo")
         then:
             result instanceof JSONArray
-        result.each{
-            println it
-        }
+            result.each{
+                println it
+            }
     }
 }

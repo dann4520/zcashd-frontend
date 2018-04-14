@@ -11,8 +11,11 @@ class DashboardControllerSpec extends Specification implements ControllerUnitTes
     def cleanup() {
     }
 
-    void "test something"() {
-        expect:"fix me"
-            true == false
+    void "does showPeerinfo return peer information"() {
+        when:
+            def result = controller.showPeerinfo()
+        then:
+            model.peers.size() != 0
+            model.info.size() != 0
     }
 }
