@@ -13,9 +13,9 @@ class RpcServiceSpec extends Specification implements ServiceUnitTest<RpcService
     def cleanup() {
     }
 
-    void "test getInfo() - getinfo"() {
+    void "rpcCommand - getinfo"() {
         when:
-            def result = service.getInfo("getinfo")
+            def result = service.rpcCommand("getinfo")
         then:
             result instanceof JSONObject
             result.each{
@@ -23,9 +23,9 @@ class RpcServiceSpec extends Specification implements ServiceUnitTest<RpcService
             }
     }
 
-    void "test getInfo() - getpeerinfo"() {
+    void "rpcCommand - getpeerinfo"() {
         when:
-            def result = service.getInfo("getpeerinfo")
+            def result = service.rpcCommand("getpeerinfo")
         then:
             result instanceof JSONArray
             result.each{

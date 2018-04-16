@@ -16,7 +16,7 @@ class RpcService {
     String method
     int requestID
 
-    def getInfo(String method) {
+    def rpcCommand(String method) {
         this.method = method
         requestID = 0
         request = new JSONRPC2Request(method, requestID)

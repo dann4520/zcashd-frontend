@@ -1,16 +1,20 @@
 package zcashd.frontend
 
+import grails.converters.JSON
+
 class DashboardController {
 
     RpcService rpcService = new RpcService()
 
-    def showPeerinfo() {
-        def peers = rpcService.getInfo("getpeerinfo")
-        def info = rpcService.getInfo("getinfo")
+    def home(){
 
-        println peers.class
-        println info.class
+    }
 
-        render model:[peers:peers, info:info], view:"index"
+    def getInfo() {
+        render rpcService.rpcCommand("getinfo") as JSON
+    }
+
+    def getPeerinfo(){
+        render rpcService.rpcCommand("getpeerinfo") as JSON
     }
 }

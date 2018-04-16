@@ -3,11 +3,13 @@
 
 web front end that runs on same machine as the node and displays a nice dashboard.
 
-Todo
-* ~~spike getinfo~~
-* ~~spike getpeers~~
+Tasks
 * auto update
-* more api features
+* refresh time stored in session
+* adjustable refresh time
+* add button list
+* home with articles from zcash
+* config service loads settings from file
 
 Links
 * http://software.dzhuvinov.com/json-rpc-2.0-client.html

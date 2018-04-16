@@ -1,6 +1,7 @@
 package zcashd.frontend
 
 import grails.testing.web.controllers.ControllerUnitTest
+import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class DashboardControllerSpec extends Specification implements ControllerUnitTest<DashboardController> {
@@ -11,11 +12,21 @@ class DashboardControllerSpec extends Specification implements ControllerUnitTes
     def cleanup() {
     }
 
-    void "does showPeerinfo return peer information"() {
+    void "does getPeerinfo get peer infomation"() {
         when:
-            def result = controller.showPeerinfo()
+            controller.getPeerinfo()
         then:
-            model.peers.size() != 0
-            model.info.size() != 0
+        def slurp = new JsonSlurper().parse(response.getJson().toString().bytes)
+        slurp.size() != 0
+    }
+
+    void "does getinfo get node information"() {
+        when:
+        controller.getInfo()
+        then:
+        def slurp = new JsonSlurper().parse(response.getJson().toString().bytes)
+        response.getJson().collect().size() != 0
+        slurp.protocolversion == 170005
+        slurp.testnet
     }
 }
