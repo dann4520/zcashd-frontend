@@ -12,6 +12,40 @@
 <div class="col-3">
 
 
+<script>
+$(document).ready(function() {
+    var refreshData = function(){
+    $("#peersList").append('<i class="fas fa-cog fa-10x fa-pulse"></i>');
+        $.ajax({
+            url: "/getInfo",
+            method: "POST",
+        }).done(function(data){
+            console.log(data);
+            $("#protocolversion").html(data.protocolversion);
+            $("#relayfee").html(data.relayfee);
+            $("#timeoffset").html(data.timeoffset);
+            $("#blocks").html(data.blocks);
+            $("#version").html(data.version);
+            $("#keypoolsize").html(data.keypoolsize);
+            $("#paytxfee").html(data.paytxfee);
+            $("#difficulty").html(data.difficulty);
+            $("#proxy").html(data.proxy);
+            $("#walletversion").html(data.walletversion);
+            $("#balance").html(data.balance);
+            $("#keypoololdest").html(data.keypoololdest);
+            $("#testnet").html(data.testnet);
+            $("#connections").html(data.connections);
+        })
+    };
+
+    refreshData();
+    setInterval(refreshData, 3000);
+
+
+})
+</script>
+
+
 <g:render template="/shared/buttonlist"/>
 
 
@@ -19,29 +53,68 @@
 <div class="col border my-4 p-1">
 
 <table class="table">
-  <thead>
+  <tbody>
     <tr>
       <th>protocolversion</th>
-      <th>relayfee</th>
-      <th>timeoffset</th>
-      <th>blocks</th>
-    <th>version</th>
-    <th>keypoolsize</th>
-    <th>paytxfee</th>
-    <th>difficulty</th>
-</tr>
-  </thead>
-  <tbody>
+      <td id="protocolversion"></th>
+      </tr>
       <tr>
-        <td>${info.protocolversion}</th>
-        <td>${info.relayfee}</td>
-        <td>${info.timeoffset}</td>
-        <td>${info.blocks}</td>
-        <td>${info.version}</th>
-        <td>${info.keypoolsize}</td>
-        <td>${info.paytxfee}</td>
-        <td>${info.difficulty}</td>
+      <th>relayfee</th>
+      <td id="relayfee"></td>
+      </tr>
+      <tr>
+      <th>timeoffset</th>
+      <td id="timeoffset"></td>
+      </tr>
+      <tr>
+      <th>blocks</th>
+      <td id="blocks"></td>
+      </tr>
+      <tr>
+    <th>version</th>
+    <td id="version"></th>
+    </tr>
+    <tr>
+    <th>keypoolsize</th>
+    <td id="keypoolsize"></td>
+    </tr>
+    <tr>
+    <th>paytxfee</th>
+    <td id="paytxfee"></td>
+    </tr>
+    <tr>
+    <th>difficulty</th>
+    <td id="difficulty"></td>
 </tr>
+    <tr>
+    <th>proxy</th>
+    <td id="proxy"></td>
+</tr>
+    <tr>
+    <th>walletversion</th>
+    <td id="walletversion"></td>
+</tr>
+    <tr>
+    <th>balance</th>
+    <td id="balance"></td>
+</tr>
+    <tr>
+    <th>keypoololdest</th>
+    <td id="keypoololdest"></td>
+</tr>
+    <tr>
+    <th>testnet</th>
+    <td id="testnet"></td>
+</tr>
+    <tr>
+    <th>connections</th>
+    <td id="connections"></td>
+</tr>
+    <tr>
+    <th>errors</th>
+    <td id="errors"></td>
+</tr>
+
     </tbody>
   </table>
 

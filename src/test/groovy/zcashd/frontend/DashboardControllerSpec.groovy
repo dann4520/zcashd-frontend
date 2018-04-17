@@ -13,16 +13,18 @@ class DashboardControllerSpec extends Specification implements ControllerUnitTes
     def cleanup() {
     }
 
-    void "does getPeerinfo get peer infomation"() {
+    void "does getPeerinfo POST return getpeerinfo json"() {
         when:
+        request.method = "POST"
             controller.getPeerinfo()
         then:
         def slurp = new JsonSlurper().parse(response.getJson().toString().bytes)
         slurp.size() != 0
     }
 
-    void "does getinfo get node information"() {
+    void "does getinfo POST return getinfo json"() {
         when:
+        request.method = "POST"
         controller.getInfo()
         then:
         def slurp = new JsonSlurper().parse(response.getJson().toString().bytes)

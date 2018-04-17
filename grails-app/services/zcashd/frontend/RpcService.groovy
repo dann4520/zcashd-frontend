@@ -8,7 +8,10 @@ import com.thetransactioncompany.jsonrpc2.client.JSONRPC2SessionException
 // http://software.dzhuvinov.com/json-rpc-2.0-client.html
 
 class RpcService {
-    String server = "http://127.0.0.1:18232/"
+
+    ConfigService configService = new ConfigService()
+
+    String server = configService.getConfig().server
     URL serverURL
     JSONRPC2Session mySession
     JSONRPC2Response response

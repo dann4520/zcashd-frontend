@@ -33,10 +33,14 @@ class DashboardController {
     }
 
     def getInfo() {
-        render rpcService.rpcCommand("getinfo") as JSON
+        if(request.method == "POST") {
+            return render(rpcService.rpcCommand("getinfo") as JSON)
+        }
     }
 
     def getPeerinfo(){
-        render rpcService.rpcCommand("getpeerinfo") as JSON
+        if(request.method == "POST") {
+            return render(rpcService.rpcCommand("getpeerinfo") as JSON)
+        }
     }
 }

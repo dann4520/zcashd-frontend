@@ -4,11 +4,11 @@
 web front end that runs on same machine as the node and displays a nice dashboard.
 
 Tasks
-* auto update views
+* ~~auto update views~~
 * refresh time stored in session
 * adjustable refresh time
 * ~~add button list~~
-* highlight active button
+* ~~highlight active button~~
 * ~~home with articles from zcash~~
 * ~~config service loads settings from file~~ src/main/resources/zcashd-frontend.config
 * login
