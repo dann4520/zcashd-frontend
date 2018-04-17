@@ -2,6 +2,7 @@ package zcashd.frontend
 
 import grails.testing.web.controllers.ControllerUnitTest
 import groovy.json.JsonSlurper
+import groovy.xml.XmlUtil
 import spock.lang.Specification
 
 class DashboardControllerSpec extends Specification implements ControllerUnitTest<DashboardController> {
@@ -31,6 +32,14 @@ class DashboardControllerSpec extends Specification implements ControllerUnitTes
     }
 
     void "does home get zcash rss feed"(){
-
+        when:
+        request.method = "POST"
+        controller.home()
+        then:
+        def slurp = new JsonSlurper().parseText(response.getJson().toString())
+        slurp.zcashRss.size() != 0
+        slurp.zcashRss.each{
+            it.title != ""
+        }
     }
 }

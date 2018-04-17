@@ -19,6 +19,6 @@ class ConfigServiceSpec extends Specification implements ServiceUnitTest<ConfigS
             config.server == "http://127.0.0.1:18232"
             config.rpcusername == "zcash"
             config.rpcpassword == "zcash"
-            config.zcash_url == "https://blog.z.cash/feed"
+            config.zcashUrl == "https://blog.z.cash/feed"
     }
 }

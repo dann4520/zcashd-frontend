@@ -9,7 +9,7 @@ Tasks
 * adjustable refresh time
 * ~~add button list~~
 * highlight active button
-* home with articles from zcash
+* ~~home with articles from zcash~~
 * ~~config service loads settings from file~~ src/main/resources/zcashd-frontend.config
 * login
 * some kind of line graph on home page

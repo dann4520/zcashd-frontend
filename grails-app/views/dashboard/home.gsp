@@ -3,6 +3,7 @@
 <head>
     <meta name="layout" content="main"/>
     <title>getPeerinfo</title>
+
 </head>
 <body>
 
@@ -18,7 +19,30 @@
 </div>
 <div class="col border rounded m-4 p-4">
 
-<h1 class="header-4">zcashd-frontend</h1>
+<div id="zcashBlog">
+<i class="fas fa-cog fa-10x fa-pulse"></i>
+</div>
+
+
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "/",
+        method: "POST",
+    }).done(function(data){
+        console.log(data);
+        $("#zcashBlog").empty();
+        data.zcashRss.forEach(function(element) {
+
+$("#zcashBlog").append("<div class='card my-3'>" +
+                       "<div class='card-body'>" +
+                        "<h5 class='card-title'><a href='" + element.link + "'>" + element.title + "</a></h5>" +
+                        "<p class='card-text'>" + element.description + "</p>" +
+                        "<div class='card-footer text-muted'>" + element.pubDate + "</div></div></div>")
+        })
+    })
+})
+</script>
 
 
 </div>
