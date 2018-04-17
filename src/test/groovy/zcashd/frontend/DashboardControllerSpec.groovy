@@ -44,4 +44,12 @@ class DashboardControllerSpec extends Specification implements ControllerUnitTes
             it.title != ""
         }
     }
+
+    void "does getInfo have title and refresh time"(){
+        when:
+        controller.home()
+        then:
+        model.siteTitle == "zcash http frontend"
+        model.refresh == 3000
+    }
 }

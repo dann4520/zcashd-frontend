@@ -3,16 +3,19 @@
 
 web front end that runs on same machine as the node and displays a nice dashboard.
 
+modify src/main/resources/zcashd-frontend.config for your environment before running ./gradlew bootRun
+
 Tasks
 * ~~auto update views~~
 * refresh time stored in session
-* adjustable refresh time
+* ~~adjustable refresh time~~
 * ~~add button list~~
 * ~~highlight active button~~
 * ~~home with articles from zcash~~
-* ~~config service loads settings from file~~ src/main/resources/zcashd-frontend.config
+* ~~config service loads settings from file~~
 * login
 * some kind of line graph on home page
+* fix fav icon
 
 Links
 * http://software.dzhuvinov.com/json-rpc-2.0-client.html

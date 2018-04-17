@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title></title>
+    <title>${siteTitle}</title>
 </head>
 <body>
 
@@ -39,7 +39,7 @@ $(document).ready(function() {
     };
 
     refreshData();
-    setInterval(refreshData, 3000);
+    setInterval(refreshData, ${refresh});
 
 
 })

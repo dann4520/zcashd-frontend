@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title></title>
+    <title>${siteTitle}</title>
 </head>
 <body>
 
@@ -30,12 +30,22 @@ $(document).ready(function() {
                                     '<h6 class="card-subtitle mb-2 text-muted">Version: ' + e.version + ' </h6>' +
                                     '<table class="table"><tbody>' +
                                     '<tr><th>id</th><td>' + e.id + '</td></tr>' +
-                                    '<tr><th>synced_headers</th><td>' + e.synced_headers + '</td></tr>' +
-                                    '<tr><th>bytessent</th><td>' + e.bytessent + '</td></tr>' +
                                     '<tr><th>pingtime</th><td>' + e.pingtime + '</td></tr>' +
+                                    '<tr><th>synced_headers</th><td>' + e.synced_headers + '</td></tr>' +
+                                    '<tr><th>synced_blocks</th><td>' + e.synced_blocks + '</td></tr>' +
+                                    '<tr><th>startingheight</th><td>' + e.startingheight + '</td></tr>' +
+                                    '<tr><th>bytessent</th><td>' + e.bytessent + '</td></tr>' +
                                     '<tr><th>bytesrecv</th><td>' + e.bytesrecv + '</td></tr>' +
+                                    '<tr><th>conntime</th><td>' + e.conntime + '</td></tr>' +
                                     '<tr><th>lastsend</th><td>' + e.lastsend + '</td></tr>' +
                                     '<tr><th>lastrecv</th><td>' + e.lastrecv + '</td></tr>' +
+                                    '<tr><th>subver</th><td>' + e.subver + '</td></tr>' +
+                                    '<tr><th>banscore</th><td>' + e.banscore + '</td></tr>' +
+                                    '<tr><th>timeoffset</th><td>' + e.timeoffset + '</td></tr>' +
+                                    '<tr><th>inbound</th><td>' + e.inbound + '</td></tr>' +
+                                    '<tr><th>inflight</th><td>' + e.inflight + '</td></tr>' +
+                                    '<tr><th>services</th><td>' + e.services + '</td></tr>' +
+                                    '<tr><th>whitelisted</th><td>' + e.whitelisted + '</td></tr>' +
                                     '</tbody></table></div></div>')
 
         });
@@ -43,7 +53,7 @@ $(document).ready(function() {
 }
 
 refreshData();
-setInterval(refreshData, 3000);
+setInterval(refreshData, ${refresh});
 
 })
 

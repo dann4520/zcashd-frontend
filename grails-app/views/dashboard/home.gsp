@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>getPeerinfo</title>
+    <title>${siteTitle}</title>
 
 </head>
 <body>
