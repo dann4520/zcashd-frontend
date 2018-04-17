@@ -29,4 +29,8 @@ class DashboardControllerSpec extends Specification implements ControllerUnitTes
         slurp.protocolversion == 170005
         slurp.testnet
     }
+
+    void "does home get zcash rss feed"(){
+
+    }
 }
